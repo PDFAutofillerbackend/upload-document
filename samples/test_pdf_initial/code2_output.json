@@ -1,0 +1,111 @@
+{
+    "Certificate of Incorporation": {
+        "title": "CERTIFICATE OF INCORPORATION",
+        "company_name": "John LLC",
+        "company_type": "Limited Liability Company",
+        "incorporation_act": "Companies Act of Mauritius",
+        "company_number": "MU123456",
+        "date_of_incorporation": "01-Jan-2020",
+        "jurisdiction": "Mauritius",
+        "registrar_of_companies": "Registrar of Companies",
+        "signature": "Signature"
+    },
+    "Memorandum & Articles of Association": {
+        "title": "MEMORANDUM & ARTICLES OF ASSOCIATION",
+        "description": "This document sets out the constitution of John LLC, a private company limited by shares, incorporated in Mauritius.",
+        "main_objects": [
+            "Investment and Portfolio Management",
+            "Holding and Subsidiary Activities"
+        ],
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "List of Directors": {
+        "title": "LIST OF DIRECTORS",
+        "directors": [
+            {
+                "name": "John Doe",
+                "position": "Director"
+            },
+            {
+                "name": "Jane Smith",
+                "position": "Non-Executive Director"
+            }
+        ],
+        "certified_true_copy": "Certified True Copy",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "Shareholders / UBO Declaration": {
+        "title": "SHAREHOLDERS / UBO DECLARATION",
+        "shareholder": {
+            "name": "John Doe",
+            "shareholding": "100%",
+            "nationality": "Mauritian",
+            "passport": "M12345678"
+        },
+        "confirmation": "I confirm that John Doe is the ultimate beneficial owner (UBO) of the entity.",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "Authorized Signatory List (ASL)": {
+        "title": "AUTHORIZED SIGNATORY LIST",
+        "authorized_signatories": [
+            {
+                "name": "John Doe",
+                "authority": "Full signing authority"
+            },
+            {
+                "name": "Jane Smith",
+                "authority": "Co-signatory (for banking)"
+            }
+        ],
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "UBO Declaration": {
+        "title": "UBO DECLARATION",
+        "ubo": {
+            "name": "John Doe",
+            "ownership": "100%",
+            "country_of_residence": "Mauritius"
+        },
+        "date": "2025-09-17",
+        "signature": "__________________________"
+    },
+    "FATCA / CRS Self-Certification": {
+        "title": "FATCA / CRS SELF-CERTIFICATION",
+        "entity_name": "John LLC",
+        "country_of_incorporation": "Mauritius",
+        "tax_identification_number": "MU987654321",
+        "compliance_statement": "I certify that John LLC complies with FATCA and CRS requirements.",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "Board Resolution to Invest in AIF": {
+        "title": "BOARD RESOLUTION TO INVEST",
+        "resolution": "Resolved that John LLC is authorized to invest in Alternative Investment Funds (AIFs) in India.",
+        "further_resolution": "Resolved further that John Doe is authorized to execute any related documentation.",
+        "certified_true_copy": "Certified True Copy",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "Source of Funds Declaration": {
+        "title": "SOURCE OF FUNDS DECLARATION",
+        "declaration": "I, John Doe, declare that funds invested by John LLC originate from lawful business operations and are free from any criminal activity.",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "PEP Declaration": {
+        "title": "PEP DECLARATION",
+        "declaration": "I, John Doe, declare that I am not a Politically Exposed Person (PEP) as defined by FATF guidelines.",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    },
+    "AML Policy Confirmation": {
+        "title": "AML POLICY CONFIRMATION",
+        "confirmation": "I, John Doe, confirm that John LLC maintains an Anti-Money Laundering (AML) policy in compliance with Mauritian laws.",
+        "authorized_signatory": "John Doe",
+        "date": "2025-09-17"
+    }
+}

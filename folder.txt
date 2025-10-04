@@ -1,0 +1,164 @@
+$env:PYTHONPATH = "C:\Users\DeewangMathur\OneDrive - engineersmind\Desktop\mark_2\venv\Lib\site-packages"
+venv\Scripts\python.exe -m uvicorn main:app --reload
+
+mark/
+├── app/
+│   ├── __init__.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── upload.py
+├── backend/ 
+│   ├── code1.py
+│   ├── code2.py
+│   ├── code3.py
+│   ├── code4.py
+│   ├── code5.py
+│   ├── code6.py
+│   ├── code7.py
+│   └── run_pipeline.py      # wrapper to run all codes in sequence
+├── mandatory.json
+├── form_keys.json
+├── samples/                 # output folder (one subfolder per PDF)
+│   └── {session}/
+│       └── PDF_NAME/
+│           ├── code1_output.txt
+│           ├── code2_output.json
+│           ├── code3_output.json
+│           ├── code4_output_form_keys_filled.json
+│           ├── code5_output_mandatory_form_key_matching.json
+│           ├── code6_output_form_keys_filled_mandatory.json
+│           └── final_output_form_keys_filled.json
+├── frontend/
+│   ├── index.html           # upload form & buttons
+│   └── static/
+│       └── styles.css           # optional CSS
+├── main.py                   # FastAPI app to handle upload + run pipeline
+├── requirements.txt         # list of dependencies (fastapi, uvicorn, python-dotenv, openai, etc.)
+└── .env                     # API keys, config
+
+*********************************************************************************
+
+
+code7:-
+see what i want is; for doc1 final_{session}_form_keys_filled.json we created this file from final_output_form_keys_filled.json from code6 right? now doc2 final_output_form_keys_filled.json will interact to final_{session}_form_keys_filled.json nothing else at all; now final_{session}_form_keys_filled.json is having some values which are empty but filled in doc 2 final_output_form_keys_filled.json simply fill that no confusion nothing to ask; now if we already have some values in final_{session}_form_keys_filled.json and which overlapps doc2 final_output_form_keys_filled.json it maybe 1 key, 2 key or any number of keys i dont fucking care! Simply ask the user "Do you want to override new document's common information to past given information(yes/no)" if yes, simply put contradciting values of doc 2 final_output_form_keys_filled.json; if no, simply put contradicting values of already existing final_{session}_form_keys_filled.json IS THIS CODE FOLLOWING THIS?
+
+mark/
+├── app/
+│   ├── __init__.py
+│   ├── routes/
+│   │   ├── __init__.py
+│   │   ├── upload.py
+├── backend/ 
+│   ├── code1.py
+│   ├── code2.py
+│   ├── code3.py
+│   ├── code4.py
+│   ├── code5.py
+│   ├── code6.py
+│   ├── code7.py
+│   └── run_pipeline.py      # wrapper to run all codes in sequence
+├── mandatory.json
+├── form_keys.json
+├── samples/                 # output folder (one subfolder per PDF)
+│   └── {session}/
+│       └── PDF_NAME/
+│           ├── code1_output.txt
+│           ├── code2_output.json
+│           ├── code3_output.json
+│           ├── code4_output_form_keys_filled.json
+│           ├── code5_output_mandatory_form_key_matching.json
+│           ├── code6_output_form_keys_filled_mandatory.json
+│           └── final_output_form_keys_filled.json
+├── frontend/
+│   ├── index.html           # upload form & buttons
+│   └── static/
+│       └── styles.css           # optional CSS
+├── main.py                   # FastAPI app to handle upload + run pipeline
+├── requirements.txt         # list of dependencies (fastapi, uvicorn, python-dotenv, openai, etc.)
+└── .env                     # API keys, config
+
+Okay, so let me tell you from the very beginning
+
+I want to automate the tasks in code 1 to 6
+
+now letsay the user starts a session.
+
+Now the user may add n number of PDF, DOCX, PPTX, JSON, TXT, CSV, XLSX, etc.
+
+the pdf in session are stored in samples/{session_name}/{pdf_name}/:-
+
+xyz.pdf, code1_output.txt, code2_output.json, code3_output.json, code4_output_form_keys_filled.json, code5_output_mandatory_form_key_matching.json, code6_output_form_keys_filled.json, and if you go in code6, it asks for optional fields after amending the optional fields final file is made named "final_output_form_keys_filled.json"
+
+See form_keys.json and mandatory.json are static fixed files. Okay, form_keys.json has empty fields, i.e., empty keys which need to be filled, and now mandatory.json has some keys which, if present in form_keys.json, HAVE TO BE FILLED. No matter what it can contain keys which shall not be present in form_keys.json, it's okay, but if it gets mapped chatbot has to ask the user those keys, as simple as that.
+
+So, Code 1 takes pdf/docx/pptx/txt... and creates a markdown file for any okay (output-code1_output.txt) [location-samples/{session_name}/{document_name}/]
+
+Code 2 takes this code1_output.txt and gives a data key and data value pair by using LLM (same location code2_output.json)
+
+Code 3 flattens the code2_output.json and gives code3_output.json simple
+
+Code 4 finally maps form_keys.json and code3_output.json, and fill the information in form_keys.json, which is saved as code4_output_form_keys_filled.json
+
+Code 5 first asks the user their type of investor cause in mandatory_keys.json, there are multiple types, so after that it maps mandatory keys with form_keys.json and saves as code5_output_mandatory_form_key_matching.json
+
+Code 6 simply checks if any mandatory key in code4_output_form_keys_filled.json is left; if yes, ask the user to fill those empty-valued keys and save it in code6_output_form_keys_filled_mandatory.json, and after that, it asks the user if he wants to fill other empty left keys; if yes, just keep saving that data, and finally save the file "final_output_form_keys_filled.json"
+
+Now in one session, we can add multiple documents which has data, but not every time we have to ask mandatory key cause it's already done. So this is for the first document only; for the subsequent documents 2,3,4...n. We go till Code 4 and copy code_4_output_form_keys_filled.json to final_output_form_keys_filled.json.
+
+Document 1 has already filled mandatory keys, and now two things can happen: the new document 2 can contain data values that could be empty in code6 of document 1, right, so it fills simply; now, if some value overlaps! Then just ask via chatbot, "Do you want to override some common information of doc 2 to the existing filled document(y/n)?" If the user says yes, override common information from doc2 to doc1 final_output_form_keys_filled.json; if no, then keep doc1 values intact, and a "final_final_output_form_keys_filled.json" is made at location samples/{session_name}/final_final_output_form_keys_filled.json. All new document pipelines can see this and check the override, and all will be easier.
+
+let me give examples:-
+Pipeline Flow
+1️⃣ Document 1 (doc1.pdf)
+
+Input:
+
+samples/{session_name}/{doc1}/doc1.pdf
+
+
+Steps & Outputs:
+
+Step	Code	Action	Output
+1	code1.py	Extract text	samples/{session_name}/{doc1}/code1_output.txt
+2	code2.py	Parse → structured JSON	samples/{session_name}/{doc1}/code2_output.json
+3	code3.py	Extract form keys	samples/{session_name}/{doc1}/code3_output.json
+4	code4.py	Map extracted values → form keys	samples/{session_name}/{doc1}/code4_output_form_keys_filled.json
+5	code5.py	LLM mandatory field mapping	samples/{session_name}/{doc1}/code5_output_mandatory_form_key_matching.json
+6	code6.py	Fill mandatory/optional fields, resolve conflicts → doc-level final output	samples/{session_name}/{doc1}/final_output_form_keys_filled.json
+7	Copy to session-level	samples/{session_name}/{session_name}_final_output_form_keys_filled.json	
+
+✅ Doc1 runs full pipeline (code1 → code6). Session JSON created.
+
+2️⃣ Document 2 → N (doc2.pdf, doc3.pdf, …)
+
+Input:
+
+samples/{session_name}/{docN}/docN.pdf
+
+
+Steps & Outputs:
+
+Step	Code	Action	Output
+1	code1.py	Extract text	samples/{session_name}/{docN}/code1_output.txt
+2	code2.py	Parse → structured JSON	samples/{session_name}/{docN}/code2_output.json
+3	code3.py	Extract form keys	samples/{session_name}/{docN}/code3_output.json
+4	code4.py	Map extracted values → form keys	samples/{session_name}/{docN}/code4_output_form_keys_filled.json
+5	Skip code5.py	Already mapped from doc1	N/A
+6	No code6.py	For doc2 → N, we don’t run code6, we:	
+
+Copy code4_output_form_keys_filled.json → final_output_form_keys_filled.json in doc folder
+
+Merge → samples/{session_name}/{session_name}_final_output_form_keys_filled.json using code7.py logic, asking user once for conflicts |
+final_output_form_keys_filled.json (doc-level), session JSON updated |
+
+✅ Key Points
+
+Doc1 is special: full pipeline code1–6 → establishes session-level JSON.
+
+Doc2 → N: only code1–4, then copy + merge to session-level JSON using code7.py logic.
+
+code6.py is never run for doc2 → N, no changes needed there.
+
+THAT'S THE GOAL!
+
+Now, please check if all the codes are in alignment for this or not.

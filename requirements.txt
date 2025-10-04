@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-dotenv
+openai
+PyPDF2
+markitdown[all]
+pandas
+python-multipart
+aiofiles

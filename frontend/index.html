@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>📄 Document Processing Pipeline</title>
+<link rel="stylesheet" href="/static/styles.css">
+<style>
+/* General styling */
+body { font-family: Arial, sans-serif; background:#f9f9f9; margin:0; padding:0;}
+.container { max-width:900px; margin:20px auto; padding:10px;}
+.card { background:#fff; padding:15px; border-radius:8px; box-shadow:0 2px 5px rgba(0,0,0,0.1); margin-bottom:15px;}
+h1,h2,h3,h4{margin:5px 0;}
+.upload-area { cursor:pointer; border: 2px dashed #ccc; padding:20px; text-align:center; border-radius:5px; margin-bottom:10px;}
+.drag-over { border-color:#007BFF; background:#f0f8ff;}
+#fileList .file-item { display:flex; justify-content:space-between; align-items:center; margin:5px 0; padding:5px; border:1px solid #ddd; border-radius:5px;}
+.btn { padding:6px 12px; border:none; border-radius:4px; cursor:pointer;}
+.btn-primary { background:#007BFF; color:#fff;}
+.btn-secondary { background:#6c757d; color:#fff;}
+.status-box { margin-top:10px; background:#f1f1f1; padding:10px; border-radius:5px; max-height:200px; overflow-y:auto;}
+.message-box { position:fixed; top:10px; right:10px; padding:10px 15px; border-radius:5px; display:none;}
+.message-success { background:#28a745; color:#fff;}
+.message-error { background:#dc3545; color:#fff;}
+.message-info { background:#17a2b8; color:#fff;}
+.show { display:block; }
+#chatBox { background:#f0f0f0; height:200px; overflow-y:auto; padding:10px; border-radius:5px; margin-bottom:5px;}
+#chatInput { width:80%; padding:8px; border-radius:5px; border:1px solid #ccc; margin-right:5px;}
+</style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>📄 Document Processing Pipeline</h1>
+        <p>Upload and process documents instantly with mandatory fields chatbot</p>
+    </header>
+
+    <!-- Session Management -->
+    <section class="card">
+        <h2>🗂️ Session Management</h2>
+        <div>
+            <input type="text" id="sessionName" placeholder="Enter new session name">
+            <button class="btn btn-primary" onclick="createSession()">Create Session</button>
+        </div>
+        <div style="margin-top:10px;">
+            <select id="sessionSelect" onchange="loadSessionDetails()">
+                <option value="">-- Select a session --</option>
+            </select>
+            <button class="btn btn-secondary" onclick="loadSessions()">Refresh</button>
+        </div>
+        <div id="sessionInfo" style="display:none; margin-top:10px;">
+            <h3>Session: <span id="currentSession"></span></h3>
+            <p>Documents: <span id="docCount">0</span> | Processed: <span id="processedCount">0</span></p>
+        </div>
+    </section>
+
+    <!-- Upload & Process -->
+    <section class="card" id="uploadSection" style="display:none;">
+        <h2>📤 Upload & Process Documents</h2>
+        <div class="upload-area" id="uploadArea" onclick="document.getElementById('fileInput').click();">
+            <input type="file" id="fileInput" multiple accept=".pdf,.csv,.xlsx,.docx,.json" style="display:none;">
+            <p>Click or drag files here</p>
+            <small>Supported: PDF, CSV, XLSX, DOCX, JSON</small>
+        </div>
+        <div id="fileList"></div>
+        <button class="btn btn-primary" id="uploadBtn" style="display:none;" onclick="uploadAndProcessFiles()">Upload & Process</button>
+        <div id="processingStatus" class="status-box"></div>
+    </section>
+
+    <!-- Chatbot for Mandatory Fields -->
+    <section class="card" id="mandatoryFieldsSection" style="display:none;">
+        <h2>💬 Mandatory Fields Chat</h2>
+        <div id="chatBox"></div>
+        <input type="text" id="chatInput" placeholder="Enter value..." onkeydown="if(event.key==='Enter'){sendChat()}">
+        <button class="btn btn-primary" onclick="sendChat()">Send</button>
+    </section>
+
+    <!-- Documents List -->
+    <section class="card" id="documentsSection" style="display:none;">
+        <h2>📋 Documents in Session</h2>
+        <div id="documentsList"></div>
+    </section>
+
+    <div id="messageBox" class="message-box"></div>
+</div>
+
+<script>
+let selectedSession = null;
+let selectedFiles = [];
+
+// Initialization
+document.addEventListener('DOMContentLoaded', ()=>{
+    loadSessions();
+    setupDragAndDrop();
+});
+
+// Drag & Drop
+function setupDragAndDrop(){
+    const uploadArea = document.getElementById('uploadArea');
+    ['dragenter','dragover','dragleave','drop'].forEach(ev=>{uploadArea.addEventListener(ev,e=>{e.preventDefault(); e.stopPropagation();});});
+    ['dragenter','dragover'].forEach(ev=>uploadArea.addEventListener(ev,()=>uploadArea.classList.add('drag-over')));
+    ['dragleave','drop'].forEach(ev=>uploadArea.addEventListener(ev,()=>uploadArea.classList.remove('drag-over')));
+    uploadArea.addEventListener('drop',e=>handleFiles(e.dataTransfer.files));
+    document.getElementById('fileInput').addEventListener('change',e=>handleFiles(e.target.files));
+}
+
+function handleFiles(files){
+    selectedFiles = Array.from(files);
+    displayFileList();
+    document.getElementById('uploadBtn').style.display='block';
+}
+
+function displayFileList(){
+    const fileList = document.getElementById('fileList');
+    fileList.innerHTML='';
+    selectedFiles.forEach((file,idx)=>{
+        const div=document.createElement('div');
+        div.className='file-item';
+        div.innerHTML=`<span>📄 ${file.name} (${(file.size/1024).toFixed(2)} KB)</span>
+                       <button onclick="removeFile(${idx})">❌</button>`;
+        fileList.appendChild(div);
+    });
+}
+
+function removeFile(idx){
+    selectedFiles.splice(idx,1);
+    displayFileList();
+    if(selectedFiles.length===0) document.getElementById('uploadBtn').style.display='none';
+}
+
+// Messages
+function showMessage(msg,type){
+    const box=document.getElementById('messageBox');
+    box.textContent=msg;
+    box.className=`message-box message-${type} show`;
+    setTimeout(()=>{box.classList.remove('show');},4000);
+}
+
+// --- Session API ---
+async function createSession(){
+    const name=document.getElementById('sessionName').value.trim();
+    if(!name){showMessage('Enter session name','error'); return;}
+    const fd = new FormData(); fd.append('session_name',name);
+    try{
+        const resp = await fetch('/api/sessions/create',{method:'POST',body:fd});
+        const data=await resp.json();
+        if(resp.ok){showMessage('Session created!','success'); document.getElementById('sessionName').value=''; loadSessions();}
+        else showMessage(data.detail||'Failed','error');
+    }catch(e){showMessage('Error: '+e,'error');}
+}
+
+async function loadSessions(){
+    try{
+        const resp=await fetch('/api/sessions');
+        const data=await resp.json();
+        const select=document.getElementById('sessionSelect');
+        select.innerHTML='<option value="">-- Select a session --</option>';
+        data.sessions.forEach(s=>{
+            const opt=document.createElement('option');
+            opt.value=s.session_name;
+            opt.textContent=`${s.session_name} (${s.document_count} docs)`;
+            select.appendChild(opt);
+        });
+    }catch(e){showMessage('Error loading sessions','error');}
+}
+
+async function loadSessionDetails(){
+    const name=document.getElementById('sessionSelect').value;
+    if(!name){['sessionInfo','uploadSection','documentsSection'].forEach(id=>document.getElementById(id).style.display='none'); return;}
+    selectedSession=name;
+    try{
+        const resp=await fetch(`/api/sessions/${name}`);
+        const data=await resp.json();
+        document.getElementById('currentSession').textContent=name;
+        document.getElementById('docCount').textContent=data.total_documents;
+        document.getElementById('processedCount').textContent=data.processed_documents;
+        displayDocuments(data.documents);
+        ['sessionInfo','uploadSection','documentsSection'].forEach(id=>document.getElementById(id).style.display='block');
+    }catch(e){showMessage('Error loading session details','error');}
+}
+
+// Upload & process
+async function uploadAndProcessFiles(){
+    if(!selectedSession){showMessage('Select a session','error'); return;}
+    if(selectedFiles.length===0){showMessage('Select files','error'); return;}
+    const fd = new FormData(); selectedFiles.forEach(f=>fd.append('files',f));
+    showMessage('Processing...','info');
+    document.getElementById('processingStatus').innerHTML='<p>Processing...</p>';
+    try{
+        const resp = await fetch(`/api/sessions/${selectedSession}/upload_process`,{method:'POST',body:fd});
+        const data = await resp.json();
+        if(resp.ok){
+            let html='<h4>Results:</h4>';
+            data.results.forEach(r=>{ html+=`<p>${r.status==='success'?'✅':'❌'} ${r.document}: ${r.error||''}</p>`; });
+            document.getElementById('processingStatus').innerHTML=html;
+            showMessage(`Processed ${data.results.filter(r=>r.status==='success').length}/${data.results.length} documents`,'success');
+            selectedFiles=[]; document.getElementById('fileList').innerHTML=''; document.getElementById('uploadBtn').style.display='none';
+            loadSessionDetails();
+        } else showMessage(data.detail||'Processing failed','error');
+    }catch(e){showMessage('Upload & process error','error');}
+}
+
+// Display documents
+function displayDocuments(docs){
+    const container=document.getElementById('documentsList');
+    container.innerHTML='';
+    docs.forEach(d=>{
+        const div=document.createElement('div');
+        div.className='document-card';
+        div.innerHTML=`<h4>${d.document_name}</h4><p>Status: <b>${d.status}</b></p>`;
+        container.appendChild(div);
+    });
+}
+
+// Chatbot
+async function sendChat(){
+    const input=document.getElementById('chatInput');
+    if(!input.value.trim()) return;
+    const chatBox=document.getElementById('chatBox');
+    chatBox.innerHTML+=`<p><b>You:</b> ${input.value}</p>`;
+    chatBox.scrollTop=chatBox.scrollHeight;
+
+    // Send to backend (replace URL with your API)
+    try{
+        const resp=await fetch(`/api/sessions/${selectedSession}/fill-mandatory`,{
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body:JSON.stringify({value: input.value})
+        });
+        const data=await resp.json();
+        if(data.next_field){
+            chatBox.innerHTML+=`<p><b>System:</b> Please enter value for <b>${data.next_field}</b></p>`;
+        } else {
+            showMessage('All mandatory fields filled!','success');
+            document.getElementById('mandatoryFieldsSection').style.display='none';
+        }
+    }catch(e){showMessage('Chat error','error');}
+    input.value='';
+}
+</script>
+</body>
+</html>

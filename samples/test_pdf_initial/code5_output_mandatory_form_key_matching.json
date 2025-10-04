@@ -1,0 +1,260 @@
+{
+    "Name": [
+        {
+            "form_key": "investorFullLegalName_ID",
+            "description": "Name of the Subscriber",
+            "value": ""
+        }
+    ],
+    "Registered Address": [
+        {
+            "form_key": "investor_registered_adressline1_ID",
+            "description": "Registered Address - Line 1",
+            "value": ""
+        },
+        {
+            "form_key": "investor_registered_adressline2_ID",
+            "description": "Registered Address - Line 2",
+            "value": ""
+        },
+        {
+            "form_key": "investor_registered_City_ID",
+            "description": "Registered Address - City",
+            "value": ""
+        },
+        {
+            "form_key": "investor_registered_State_ID",
+            "description": "Registered Address - State",
+            "value": ""
+        },
+        {
+            "form_key": "investor_registered_Country_ID",
+            "description": "Registered Address - Country",
+            "value": ""
+        },
+        {
+            "form_key": "investor_registered_Zip_ID",
+            "description": "Registered Address - Zip",
+            "value": ""
+        }
+    ],
+    "Principal Place of Business": [
+        {
+            "form_key": "principle_place_of_business",
+            "description": "Principal Place of Business",
+            "value": ""
+        }
+    ],
+    "Tax ID": [
+        {
+            "form_key": "investorEINTAX_ID",
+            "description": "EIN/Tax ID",
+            "value": ""
+        }
+    ],
+    "Email IDs": [
+        {
+            "form_key": "investoremail_ID",
+            "description": "Email Address",
+            "value": ""
+        }
+    ],
+    "Phone": [
+        {
+            "form_key": "investortelephoneNO_ID",
+            "description": "Telephone No.",
+            "value": ""
+        }
+    ],
+    "Wire Info": [
+        {
+            "form_key": "wiringDetails.BankName",
+            "description": "Bank Name",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.AccountName",
+            "description": "Account Name",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.AccountNumber",
+            "description": "Account Number",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.ABA0rchipsNumber",
+            "description": "ABA or Chips Number",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.IBAN",
+            "description": "IBAN",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.SWIFT",
+            "description": "SWIFT",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.forfurthercredit",
+            "description": "For Further Credit",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.addressline1",
+            "description": "Wiring Address - Line 1",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.addressline2",
+            "description": "Wiring Address - Line 2",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.City",
+            "description": "Wiring Address - City",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.State",
+            "description": "Wiring Address - State",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.Country",
+            "description": "Wiring Address - Country",
+            "value": ""
+        },
+        {
+            "form_key": "wiringDetails.address.ZipCode",
+            "description": "Wiring Address - Zip Code",
+            "value": ""
+        }
+    ],
+    "Share Class": [
+        {
+            "form_key": "Ordinary/Common",
+            "description": "Share Class - Ordinary/Common",
+            "value": ""
+        },
+        {
+            "form_key": "Preferred",
+            "description": "Share Class - Preferred",
+            "value": ""
+        },
+        {
+            "form_key": "Class A",
+            "description": "Share Class - Class A",
+            "value": ""
+        },
+        {
+            "form_key": "Class B",
+            "description": "Share Class - Class B",
+            "value": ""
+        },
+        {
+            "form_key": "Class C",
+            "description": "Share Class - Class C",
+            "value": ""
+        },
+        {
+            "form_key": "Class D",
+            "description": "Share Class - Class D",
+            "value": ""
+        },
+        {
+            "form_key": "Class E",
+            "description": "Share Class - Class E",
+            "value": ""
+        },
+        {
+            "form_key": "Class F",
+            "description": "Share Class - Class F",
+            "value": ""
+        },
+        {
+            "form_key": "Non-voting",
+            "description": "Share Class - Non-voting",
+            "value": ""
+        },
+        {
+            "form_key": "Founders",
+            "description": "Share Class - Founders",
+            "value": ""
+        },
+        {
+            "form_key": "Employee (ESOP)",
+            "description": "Share Class - Employee (ESOP)",
+            "value": ""
+        },
+        {
+            "form_key": "Deferred",
+            "description": "Share Class - Deferred",
+            "value": ""
+        },
+        {
+            "form_key": "Growth",
+            "description": "Share Class - Growth",
+            "value": ""
+        }
+    ],
+    "Commitment Amount": [],
+    "Authorized Signatories": [
+        {
+            "form_key": "authorized_signatory_fields_IDs",
+            "description": "Authorized Signatory Fields",
+            "value": ""
+        }
+    ],
+    "Accredited Investor": [
+        {
+            "form_key": "Investor Eligibility.Accredited Investor Status",
+            "description": "Accredited Investor Status",
+            "value": ""
+        }
+    ],
+    "Managing Partner": [],
+    "Director List": [
+        {
+            "form_key": "Directors_id",
+            "description": "List of Directors",
+            "value": ""
+        }
+    ],
+    "Beneficial Owner List": [
+        {
+            "form_key": "Beneficial_owners_ids",
+            "description": "List of Beneficial Owners",
+            "value": ""
+        }
+    ],
+    "Managing Director": [],
+    "PEP Status": [
+        {
+            "form_key": "PEP_IDs",
+            "description": "PEP Field",
+            "value": ""
+        }
+    ],
+    "Restricted Investor Status": [
+        {
+            "form_key": "Investor Eligibility.Restricted Status",
+            "description": "Restricted Status",
+            "value": ""
+        }
+    ],
+    "ERISA - Benefit Plan Investor": [
+        {
+            "form_key": "Type of Subscriber.BenefitPlanInvestorcheck_ID",
+            "description": "Type of Subscriber - Benefit Plan Investor",
+            "value": ""
+        },
+        {
+            "form_key": "ERISA",
+            "description": "ERISA",
+            "value": ""
+        }
+    ]
+}

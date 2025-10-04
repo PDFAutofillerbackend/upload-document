@@ -1,0 +1,428 @@
+{
+    "Details in Subscription Booklet": {
+        "investorFullLegalName_ID": {
+            "description": "Name of the Subscriber",
+            "value": "John Doe"
+        },
+        "Type of Subscriber": {
+            "individualcheck_ID": {
+                "description": "Type of Subscriber - Individual",
+                "value": "Individual"
+            },
+            "corporationcheck_ID": {
+                "description": "Type of Subscriber - Corporation",
+                "value": "Limited Liability Company"
+            },
+            "trustcheck_ID": {
+                "description": "Type of Subscriber - Trust",
+                "value": ""
+            },
+            "jointtenantscheck_ID": {
+                "description": "Type of Subscriber - Joint Tenants",
+                "value": ""
+            },
+            "partenershipcheck_ID": {
+                "description": "Type of Subscriber - Partnership",
+                "value": ""
+            },
+            "limitedliabilitycompanycheck_ID": {
+                "description": "Type of Subscriber - Limited Liability Company",
+                "value": "Limited Liability Company"
+            },
+            "keoghplancheck_ID": {
+                "description": "Type of Subscriber - Keogh Plan",
+                "value": ""
+            },
+            "fundsoffundscheck_ID": {
+                "description": "Type of Subscriber - Funds of Funds",
+                "value": ""
+            },
+            "otherscheck_ID": {
+                "description": "Type of Subscriber - Others",
+                "value": ""
+            },
+            "IndividualRetirementAccount_ID": {
+                "description": "Type of Subscriber - Individual Retirement Account",
+                "value": ""
+            },
+            "BenefitPlanInvestorcheck_ID": {
+                "description": "Type of Subscriber - Benefit Plan Investor",
+                "value": ""
+            },
+            "BrokerBreakercheck_ID": {
+                "description": "Type of Subscriber - Broker Breaker",
+                "value": ""
+            },
+            "RegisteredInvestmentCompanycheck_ID": {
+                "description": "Type of Subscriber - Registered Investment Company",
+                "value": ""
+            },
+            "others_ID": {
+                "description": "Type of Subscriber - Other Type",
+                "value": ""
+            }
+        },
+        "Address (Registered)": {
+            "investor_registered_adressline1_ID": {
+                "description": "Registered Address - Line 1",
+                "value": "block r"
+            },
+            "investor_registered_adressline2_ID": {
+                "description": "Registered Address - Line 2",
+                "value": "76-a"
+            },
+            "investor_registered_City_ID": {
+                "description": "Registered Address - City",
+                "value": "delhi"
+            },
+            "investor_registered_State_ID": {
+                "description": "Registered Address - State",
+                "value": "delhi"
+            },
+            "investor_registered_Country_ID": {
+                "description": "Registered Address - Country",
+                "value": "Mauritius"
+            },
+            "investor_registered_Zip_ID": {
+                "description": "Registered Address - Zip",
+                "value": "110097"
+            }
+        },
+        "Address (Mailing)": {
+            "investor_mailing_addressline1_ID": {
+                "description": "Mailing Address - Line 1",
+                "value": ""
+            },
+            "investor_mailing_addressline2_ID": {
+                "description": "Mailing Address - Line 2",
+                "value": ""
+            },
+            "investor_mailing_City_ID": {
+                "description": "Mailing Address - City",
+                "value": ""
+            },
+            "investor_mailing_State_ID": {
+                "description": "Mailing Address - State",
+                "value": ""
+            },
+            "investor_mailing_Country_ID": {
+                "description": "Mailing Address - Country",
+                "value": ""
+            },
+            "investor_mailing_Zip_ID": {
+                "description": "Mailing Address - Zip",
+                "value": ""
+            }
+        },
+        "investorEINTAX_ID": {
+            "description": "EIN/Tax ID",
+            "value": "MU987654321"
+        },
+        "investorSSN_ID": {
+            "description": "SSN",
+            "value": ""
+        },
+        "investortelephoneNO_ID": {
+            "description": "Telephone No.",
+            "value": "987"
+        },
+        "Fax no.": {
+            "description": "Fax No.",
+            "value": ""
+        },
+        "investoremail_ID": {
+            "description": "Email Address",
+            "value": "dew"
+        },
+        "Form PF (Investor Type)": {
+            "NonIndividualInvestmentCompany_ID": {
+                "description": "Investment Company",
+                "value": ""
+            },
+            "NonIndividualPrivateFund_ID": {
+                "description": "Private Fund",
+                "value": ""
+            },
+            "NonIndividualBankingorThriftInstitution_ID": {
+                "description": "Banking or Thrift Institution",
+                "value": ""
+            },
+            "NonIndividualNon-profitOrganization_ID": {
+                "description": "Non-profit Organization",
+                "value": ""
+            },
+            "NonIndividualSovereignWealthFundorForeignOfficialInstitution_ID": {
+                "description": "Sovereign Wealth Fund / Foreign Official Institution",
+                "value": ""
+            },
+            "NonIndividualStateorMunicipalGovernmentEntity(otherthanagovernmentalpensionplan)_ID": {
+                "description": "State or Municipal Government Entity (non-pension)",
+                "value": ""
+            },
+            "NonIndividualStateorMunicipalGovernmentalPensionPlan_ID": {
+                "description": "State or Municipal Governmental Pension Plan",
+                "value": ""
+            },
+            "NonIndividualPensionPlan(otherthanagovernmentalpensionplan)_ID": {
+                "description": "Pension Plan (non-governmental)",
+                "value": ""
+            },
+            "Individual_ID": {
+                "description": "Individual",
+                "value": "Individual"
+            },
+            "IndividualthatisaUnitedStatesperson_ID": {
+                "description": "US Individual",
+                "value": ""
+            },
+            "IndividualthatisnotaUnitedStatesperson_ID": {
+                "description": "Non-US Individual",
+                "value": ""
+            }
+        },
+        "Date of Birth": {
+            "investorDOB_ID": {
+                "description": "Date of Birth - Investor",
+                "value": ""
+            },
+            "Co-investorDOB_ID": {
+                "description": "Date of Birth - Co-Investor",
+                "value": ""
+            }
+        },
+        "investorInceptionDate_ID": {
+            "description": "Inception Date",
+            "value": ""
+        },
+        "Entity Representative": {
+            "EntityRepresentativeName_ID": {
+                "description": "Entity Representative - Name",
+                "value": ""
+            },
+            "EntityRepresentativeTitle_ID": {
+                "description": "Entity Representative - Title",
+                "value": ""
+            },
+            "EntityRepresentativeEmail_ID": {
+                "description": "Entity Representative - Email",
+                "value": ""
+            }
+        },
+        "Co-Investor": {
+            "Co-Investorname_ID": {
+                "description": "Co-Investor Name",
+                "value": ""
+            },
+            "Co-InvestorMail_ID": {
+                "description": "Co-Investor Email",
+                "value": ""
+            }
+        },
+        "InvestorOccupation_ID": {
+            "description": "Investor Occupation",
+            "value": ""
+        },
+        "InvestorNatureofbusiness_ID": {
+            "description": "Nature of Business",
+            "value": ""
+        },
+        "principle_place_of_business": {
+            "description": "Principal Place of Business",
+            "value": "delhi"
+        },
+        "countryofincorporation/domicile": {
+            "description": "Country of Incorporation/Domicile",
+            "value": "Mauritius"
+        },
+        "pointofcontact_id": {
+            "description": "Point of Contact IDs",
+            "value": ""
+        },
+        "Wiring Details": {
+            "wiringDetails.BankName": {
+                "description": "Bank Name",
+                "value": "sbi"
+            },
+            "wiringDetails.AccountName": {
+                "description": "Account Name",
+                "value": "12"
+            },
+            "wiringDetails.AccountNumber": {
+                "description": "Account Number",
+                "value": "33"
+            },
+            "wiringDetails.ABA0rchipsNumber": {
+                "description": "ABA or Chips Number",
+                "value": "345"
+            },
+            "wiringDetails.IBAN": {
+                "description": "IBAN",
+                "value": "1234"
+            },
+            "wiringDetails.SWIFT": {
+                "description": "SWIFT",
+                "value": "3456"
+            },
+            "wiringDetails.forfurthercredit": {
+                "description": "For Further Credit",
+                "value": "12"
+            },
+            "wiringDetails.address.addressline1": {
+                "description": "Wiring Address - Line 1",
+                "value": "delhi"
+            },
+            "wiringDetails.address.addressline2": {
+                "description": "Wiring Address - Line 2",
+                "value": "delh"
+            },
+            "wiringDetails.address.City": {
+                "description": "Wiring Address - City",
+                "value": "del"
+            },
+            "wiringDetails.address.State": {
+                "description": "Wiring Address - State",
+                "value": "de"
+            },
+            "wiringDetails.address.Country": {
+                "description": "Wiring Address - Country",
+                "value": "d"
+            },
+            "wiringDetails.address.ZipCode": {
+                "description": "Wiring Address - Zip Code",
+                "value": "1"
+            }
+        },
+        "Missing": {
+            "description": "AML Questionnaire - Wiring Bank Located in FATF country",
+            "value": ""
+        },
+        "authorized_signatory_fields_IDs": {
+            "description": "Authorized Signatory Fields",
+            "value": "John Doe"
+        },
+        "PEP_IDs": {
+            "description": "PEP Field",
+            "value": "John Doe"
+        },
+        "USD/EUR/GBP_IDs": {
+            "description": "Currency",
+            "value": ""
+        },
+        "Directors_id": {
+            "description": "List of Directors",
+            "value": [
+                {
+                    "name": "John Doe",
+                    "position": "Director"
+                },
+                {
+                    "name": "Jane Smith",
+                    "position": "Non-Executive Director"
+                }
+            ]
+        },
+        "Beneficial_owners_ids": {
+            "description": "List of Beneficial Owners",
+            "value": [
+                {
+                    "name": "John Doe",
+                    "shareholding": "100%",
+                    "nationality": "Mauritian",
+                    "passport": "M12345678"
+                }
+            ]
+        },
+        "Share Class": {
+            "Ordinary/Common": {
+                "description": "Share Class - Ordinary/Common",
+                "value": "No"
+            },
+            "Preferred": {
+                "description": "Share Class - Preferred",
+                "value": "No"
+            },
+            "Class A": {
+                "description": "Share Class - Class A",
+                "value": "No"
+            },
+            "Class B": {
+                "description": "Share Class - Class B",
+                "value": "No"
+            },
+            "Class C": {
+                "description": "Share Class - Class C",
+                "value": "No"
+            },
+            "Class D": {
+                "description": "Share Class - Class D",
+                "value": "No"
+            },
+            "Class E": {
+                "description": "Share Class - Class E",
+                "value": "No"
+            },
+            "Class F": {
+                "description": "Share Class - Class F",
+                "value": "No"
+            },
+            "Non-voting": {
+                "description": "Share Class - Non-voting",
+                "value": "No"
+            },
+            "Founders": {
+                "description": "Share Class - Founders",
+                "value": "Yes"
+            },
+            "Employee (ESOP)": {
+                "description": "Share Class - Employee (ESOP)",
+                "value": "No"
+            },
+            "Deferred": {
+                "description": "Share Class - Deferred",
+                "value": "No"
+            },
+            "Growth": {
+                "description": "Share Class - Growth",
+                "value": "No"
+            }
+        },
+        "Investor Eligibility": {
+            "U.S Person": {
+                "description": "U.S. Person",
+                "value": ""
+            },
+            "Accredited Investor Status": {
+                "description": "Accredited Investor Status",
+                "value": ""
+            },
+            "Qualified Client Status": {
+                "description": "Qualified Client Status",
+                "value": ""
+            },
+            "ERISA": {
+                "description": "ERISA",
+                "value": "y"
+            },
+            "Qualified Purchaser Status": {
+                "description": "Qualified Purchaser Status",
+                "value": ""
+            },
+            "Restricted Status": {
+                "description": "Restricted Status",
+                "value": ""
+            },
+            "New Issue Eligiblity/ FINRA": {
+                "description": "New Issue Eligibility / FINRA",
+                "value": ""
+            }
+        },
+        "Self_certification": {
+            "description": "Common Reporting Standard & Self-Certification",
+            "value": ""
+        },
+        "Additional subs": {
+            "description": "Additional Subs & Redemption Forms (not for mapping)",
+            "value": ""
+        }
+    }
+}
